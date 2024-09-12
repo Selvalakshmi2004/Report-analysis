@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cyrus Byte</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 50px;
+        }
+        input[type="file"] {
+            margin: 20px 0;
+        }
+        .container {
+            width: 60%;
+            margin: 0 auto;
+        }
+        .image-preview {
+            margin-top: 20px;
+            max-width: 100%;
+        }
+         .extracted-text, .generated-output {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #f2f2f2;
+            border: 1px solid #ddd;
+            text-align: left;
+            white-space: pre-wrap; /* Ensure text wraps correctly */
+            word-wrap: break-word; /* Handle long words or URLs */
+            overflow: auto; /* Add scrollbars if content exceeds box height */
+            max-height: 300px; /* Limit the height to prevent overflow */
+        }
+        pre {
+            margin: 0; /* Ensure no extra margin in the preformatted text */
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>AI Scan report analyzer</h1>
+    <form action="/" method="post" enctype="multipart/form-data">
+        <input type="file" name="image" accept="image/*" required>
+        <br>
+        <button type="submit">Upload and Analyze report</button>
+    </form>
+
+    {% if image_path %}
+    <div>
+        <h2>Uploaded Image:</h2>
+        <img src="{{ url_for('static', filename='uploads/' + image_path.split('/')[-1]) }}" alt="Uploaded Image" class="image-preview">
+    </div>
+    {% endif %}
+
+    {% if extracted_text %}
+    <div class="extracted-text">
+        <h2>Extracted Text:</h2>
+        <pre>{{ extracted_text }}</pre>
+    </div>
+    {% endif %}
+
+    {% if generated_output %}
+    <div class="generated-output">
+        <h2>Generated AI Output:</h2>
+        <pre>{{ generated_output }}</pre>
+    </div>
+    {% endif %}
+</div>
+
+</body>
+</html>
