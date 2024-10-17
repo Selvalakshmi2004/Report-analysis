@@ -8,7 +8,7 @@ import google.generativeai as genai
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
 # Configure Google Generative AI API
-genai.configure(api_key='AIzaSyD2FWWkJ-lMx76_kQDQHMagv7xGVq75vKA')
+genai.configure(api_key='AIzaSyD2FWWkJ-lMx76_kQDQHMagv7xGVq75vsurya')
 
 # Function to handle image upload, OCR, and text generation
 def process_image(image):
