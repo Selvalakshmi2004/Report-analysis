@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+
+{% block title %}Scan Report{% endblock %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #6a1b9a; border-radius: 5px; background-color: #232323; text-align: center;">
+    <h1 style="color: #6a1b9a; margin-bottom: 20px;">Scan Your Report</h1>
+
+    <form action="/scan" method="POST" enctype="multipart/form-data" style="margin-bottom: 20px;">
+        <input type="file" name="file" accept="image/*" required style="display: block; margin: 0 auto 15px; padding: 10px; border: 1px solid #6a1b9a; border-radius: 5px;">
+        <button type="submit" style="background-color: #6a1b9a; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Upload
+        </button>
+    </form>
+</div>
+
+{% if extracted_text %}
+    <div style="border: 1px solid #6a1b9a; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <h2 style="color: #6a1b9a; margin-bottom: 10px;">Extracted Text:</h2>
+        <pre style="white-space: pre-wrap; color: #8e8b8b; margin-left: 15px; font-size: 1rem;">{{ extracted_text }}</pre>
+    </div>
+
+    <div style="border: 1px solid #6a1b9a; padding: 15px; border-radius: 5px; margin-top: 20px;">
+        <h2 style="color: #6a1b9a; margin-bottom: 10px;">Generated Content:</h2>
+        <pre style="white-space: pre-wrap; color: #8e8b8b; margin-left: 15px; font-size: 1rem;">{{ generated_output }}</pre>
+    </div>
+
+    <img src="{{ image_path }}" alt="Uploaded Image" style="display: block; margin: 20px auto; max-width: 100%; height: auto; border-radius: 5px;">
+{% endif %}
+{% endblock %}

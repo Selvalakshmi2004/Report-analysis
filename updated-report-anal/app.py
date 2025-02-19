@@ -19,7 +19,7 @@ if not os.path.exists(app.config['UPLOAD_FOLDER']):
 pytesseract.pytesseract.tesseract_cmd = r'C:\Program Files\Tesseract-OCR\tesseract'
 
 # Configure Google Generative AI API
-genai.configure(api_key='AIzaSyD2FWWkJ-lMx76_kQDQHMagv7xGVq75vKA')
+genai.configure(api_key='your api key')
 
 @app.route('/')
 def home():

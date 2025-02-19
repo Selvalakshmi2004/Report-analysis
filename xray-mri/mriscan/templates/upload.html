@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Upload MRI Image</title>
+    <style>
+        body { 
+    text-align: center; 
+    font-family: Arial, sans-serif; 
+    background-color: #add8e6; /* Pale blue background */
+}
+
+        .container { margin-top: 50px; }
+        input[type="file"] { margin: 20px; }
+        button { padding: 10px 20px; background: blue; color: white; border: none; cursor: pointer; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Upload an MRI Scan</h1>
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" required>
+            <button type="submit">Upload & Analyze</button>
+        </form>
+    </div>
+</body>
+</html>

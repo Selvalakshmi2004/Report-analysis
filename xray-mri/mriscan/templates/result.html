@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 20px;
+        }
+        h1 {
+            color: #333;
+        }
+        img {
+            width: 300px;
+            border-radius: 10px;
+            margin: 20px 0;
+        }
+        .result-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 10px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        .bold {
+            font-weight: bold;
+            color: #007bff;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+        }
+    </style>
+</head>
+<body>
+    <div class="result-container">
+        <h1>Brain Tumor Detection Result</h1>
+        <!-- <img src="{{ image_url }}" alt="Uploaded MRI Image"> -->
+        
+        <h2 class="bold">Predicted Tumor Type: {{ tumor_type | capitalize }}</h2>
+        
+        {% if medical_info %}
+            <h3>Medical Information</h3>
+            <ul>
+                {% for line in medical_info.split('\n') %}
+                    <li>{{ line }}</li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No additional medical information available.</p>
+        {% endif %}
+    </div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Axe Analytics - X-Ray Analysis</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-radius: 8px;
+        }
+        .result {
+            margin-top: 20px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            background-color: #f9f9f9;
+            text-align: left;
+            white-space: pre-line;
+        }
+        .highlight {
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Axe Analytics - X-Ray Analysis</h1>
+    <p>Upload an X-Ray image to analyze.</p>
+
+    <div class="container">
+        <form action="/" method="post" enctype="multipart/form-data">
+            <input type="file" name="file" accept="image/png, image/jpeg, image/jpg" required>
+            <br><br>
+            <button type="submit">Analyze</button>
+        </form>
+
+        {% if image_url %}
+        <h3>Uploaded Image:</h3>
+        <img src="{{ image_url }}" alt="Uploaded X-Ray">
+        {% endif %}
+
+        {% if analysis %}
+        <h3>Analysis Result:</h3>
+        <div class="result">{{ analysis | safe }}</div>
+        {% endif %}
+    </div>
+
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction Result</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #232323;
+        }
+        .result-container {
+            max-width: 600px;
+            margin: auto;
+            padding: 20px;
+            border: 1px solid #6a1b9a;
+            border-radius: 5px;
+            background-color: #232323;
+        }
+        h1, h2, h3 {
+            color: #6a1b9a;
+        }
+        ul {
+            text-align: left;
+            display: inline-block;
+            color: #8e8b8b;
+        }
+        .bold {
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div class="result-container">
+    <h1>Brain Tumor Detection Result</h1>
+    <h2 class="bold">Predicted Tumor Type: {{ tumor_type | capitalize }}</h2>
+
+    {% if medical_info %}
+        <h3>Medical Information</h3>
+        <ul>
+            {% for line in medical_info.split('\n') %}
+                <li>{{ line }}</li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <p>No additional medical information available.</p>
+    {% endif %}
+</div>
+
+<button onclick="goBack()" style="margin-top: 20px; padding: 10px 20px; background-color: #ae77fa; color: white; border: none; border-radius: 5px; cursor: pointer;">🔙 Back</button>
+
+<script>
+function goBack() {
+    window.history.back();
+}
+</script>
+
+</body>
+</html>

@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}Upload MRI Image{% endblock %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #6a1b9a; border-radius: 5px; background-color: #232323; text-align: center;">
+    <h1 style="color: #6a1b9a; margin-bottom: 20px;">Upload an MRI Scan</h1>
+
+    <form action="/mri" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" required style="display: block; margin: 0 auto 15px; padding: 10px; border: 1px solid #6a1b9a; border-radius: 5px;">
+        <button type="submit" style="background-color: #6a1b9a; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Upload & Analyze
+        </button>
+    </form>
+</div>
+
+{% endblock %}

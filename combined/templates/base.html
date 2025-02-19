@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}My Project{% endblock %}</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body { background-color: #181717; color: #8e8b8b; font-family: Arial, sans-serif; }
+        .navbar { background-color: #6a1b9a; padding: 15px; text-align: center; }
+        .navbar a { color: white; padding: 14px 20px; text-decoration: none; font-weight: bold; }
+        .navbar a:hover { background-color: #4a0072; }
+        .container { padding: 20px; }
+    </style>
+</head>
+<body>
+    <div class="navbar">
+        <a href="{{ url_for('home') }}">Home</a>
+        <a href="{{ url_for('upload_image') }}">Scan</a>
+        <a href="{{ url_for('upload_mri') }}">MRI</a>
+        <a href="{{ url_for('process_xray') }}">X-RAY</a>
+        <a href="{{ url_for('details') }}">Details</a>        
+    </div>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>

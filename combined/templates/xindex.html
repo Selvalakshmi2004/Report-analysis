@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+
+{% block title %}X-Ray Analysis{% endblock %}
+
+{% block content %}
+<div style="max-width: 600px; margin: 0 auto; padding: 20px; border: 1px solid #6a1b9a; border-radius: 5px; background-color: #232323; text-align: center;">
+    <h1 style="color: #6a1b9a; margin-bottom: 20px;">Axe Analytics - X-Ray Analysis</h1>
+
+    <form action="/xray" method="post" enctype="multipart/form-data">
+        <input type="file" name="file" accept="image/png, image/jpeg, image/jpg" required style="display: block; margin: 0 auto 15px; padding: 10px; border: 1px solid #6a1b9a; border-radius: 5px;">
+        <button type="submit" style="background-color: #6a1b9a; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">
+            Analyze
+        </button>
+    </form>
+
+    {% if image_url %}
+    <h3 style="color: #6a1b9a; margin-top: 20px;">Uploaded Image:</h3>
+    <img src="{{ image_url }}" alt="Uploaded X-Ray" style="display: block; margin: 20px auto; max-width: 100%; height: auto; border-radius: 5px;">
+    {% endif %}
+
+    {% if analysis %}
+    <h3 style="color: #6a1b9a; margin-top: 20px;">Analysis Result:</h3>
+    <div style="border: 1px solid #6a1b9a; padding: 15px; border-radius: 5px; margin-top: 10px; color: #8e8b8b; text-align: left;">
+        {{ analysis | safe }}
+    </div>
+    {% endif %}
+</div>
+{% endblock %}
